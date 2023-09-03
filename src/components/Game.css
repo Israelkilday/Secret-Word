@@ -59,6 +59,29 @@ padding: 0.8rem;
     margin-right: 1em;
 }
 
+@media(max-width: 768px) {
+    .game {
+        overflow: hidden;
+    }
+
+    .wordContainer {
+        width: 100%;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .letter, .blankSquare {
+        font-size: 38px;
+        height: 60px;
+        width: 60px;
+        
+        
+    }
+
+
+
+    
+}
 
 
 

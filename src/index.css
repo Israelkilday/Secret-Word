@@ -38,6 +38,12 @@ body {
     background-color: #1923af;
   }
 
+  @media(max-width: 768px) {
+    html {
+        overflow: hidden;
+    }
+}
+
 
 
 
