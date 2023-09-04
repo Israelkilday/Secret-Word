@@ -49,6 +49,7 @@ const Game = ({
         <form onSubmit={handleSubmit}>
           <input 
             type="text" 
+            name="letter"
             maxLength={1} 
             required
             onChange={(e) => setLetter(e.target.value)}
