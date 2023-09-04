@@ -29,7 +29,7 @@ function App() {
   const [guessedLetters, setGuessedLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [guesses, setGuesses] = useState(3);
-  const [gameStarted, setGameStarted] = useState(false);
+  const [usedWords, setUsedWords] = useState([]);
 
   const pickWordAndCategory = useCallback(() => {
     // pick a randon category
@@ -37,12 +37,21 @@ function App() {
     const category =
       categories[Math.floor(Math.random() * Object.keys(categories).length)];
 
-    // pick a randon word
-    const word =
-      words[category][Math.floor(Math.random() * words[category].length)];
+    // check that all words have already been used
+    const categoryWords = words[category];
+    const unusedWords = categoryWords.filter(word => !usedWords.includes(word));
 
-    return { word, category };
-  }, [words]);
+    if(unusedWords === 0) {
+      // all words have been used so redefine the used words array
+      setUsedWords([]); 
+    }
+
+    // chose an unused word user from the category
+    const wordIndex = Math.floor(Math.random() * unusedWords.length)
+    const word = unusedWords[wordIndex];
+
+     return { word, category };
+  }, [words, usedWords]);
 
   // start the secret word game
   const startGame = useCallback(() => {
@@ -60,7 +69,6 @@ function App() {
     setPickedCategory(category);
     setPickedWord(word);
     setLetters(wordletters);
-    // setScore(0)
 
     setGameStage(stages[1].name);
   }, [pickWordAndCategory]);
@@ -123,7 +131,7 @@ function App() {
       startGame();
     }
 
-  }, [guessedLetters, letters, startGame, gameStarted]);
+  }, [guessedLetters, letters, startGame]);
 
   // restarts the game
   const retry = () => {
@@ -146,6 +154,7 @@ function App() {
             wrongLetters={wrongLetters}
             guesses={guesses}
             score={score}
+            usedWords={usedWords}
           />
         )}
         {gameStage === "end" &&

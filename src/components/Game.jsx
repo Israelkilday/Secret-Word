@@ -10,17 +10,21 @@ const Game = ({
   guessedLetters,
   wrongLetters,
   guesses,
-  score
+  score,
+  usedWords
 }) => {
   const [letter, setLetter] = useState("");
   const letterInputRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    verifyLetter(letter);
-    setLetter("");
-    letterInputRef.current.focus();
+    const normalizedLetter = letter.toLowerCase();
 
+    if (!usedWords.includes(pickedWord.toLowerCase())) {
+      verifyLetter(normalizedLetter);
+      setLetter("");
+      letterInputRef.current.focus();
+    } 
   }
 
   return (
@@ -29,7 +33,7 @@ const Game = ({
         Pontuação:
         <span> {score}</span>
       </p>
-      <h1>Adivinhe a palavra </h1>
+      <h1>Adivinhe a palavra</h1>
       <h3 className="tip">
         Dica sobre a palavra: <span>{pickedCategory}</span>
       </h3>
