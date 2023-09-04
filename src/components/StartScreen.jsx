@@ -10,6 +10,6 @@ const StartScreen = ({ startGame }) => {
         </div>
 
     )
-}
+} 
 
 export default StartScreen;
