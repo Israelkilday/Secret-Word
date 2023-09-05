@@ -2,6 +2,18 @@ import { useState, useRef } from "react";
 
 import "./Game.css"
 
+interface GameProps {
+  verifyLetter: (letter: string) => void,
+  pickedCategory: string,
+  pickedWord: string,
+  letters: string[],
+  guessedLetters: string[],
+  wrongLetters: string[],
+  guesses: number,
+  score: number,
+  usedWords: string[]
+}
+
 const Game = ({
   verifyLetter,
   pickedCategory,
