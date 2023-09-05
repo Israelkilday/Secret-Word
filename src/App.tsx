@@ -9,27 +9,36 @@ import { wordsList } from "./data/words";
 // css
 import './App.css'
 
-const stages = [
+interface Wordcategory {
+  [key: string]: string[];
+}
+
+interface Stage {
+  id: number;
+  name: string;
+}
+
+const stages: Stage[] = [
   { id: 1, name: "start" },
   { id: 2, name: "game" },
   { id: 3, name: "end" }
 ]
 
-const guesesQty = 3;
+const guesesQty: number = 5;
 
 function App() {
-  const [score, setScore] = useState(0);
-  const [gameStage, setGameStage] = useState(stages[0].name);
-  const [words] = useState(wordsList);
+  const [score, setScore] = useState<number>(0);
+  const [gameStage, setGameStage] = useState<string>(stages[0].name);
+  const [words] = useState<Wordcategory>(wordsList);
 
-  const [pickedWord, setPickedWord] = useState("");
-  const [pickedCategory, setPickedCategory] = useState("");
-  const [letters, setLetters] = useState([]);
+  const [pickedWord, setPickedWord] = useState<string>("");
+  const [pickedCategory, setPickedCategory] = useState<string>("");
+  const [letters, setLetters] = useState<string[]>([]);
 
-  const [guessedLetters, setGuessedLetters] = useState([]);
-  const [wrongLetters, setWrongLetters] = useState([]);
-  const [guesses, setGuesses] = useState(3);
-  const [usedWords, setUsedWords] = useState([]);
+  const [guessedLetters, setGuessedLetters] = useState<string[]>([]);
+  const [wrongLetters, setWrongLetters] = useState<string[]>([]);
+  const [guesses, setGuesses] = useState<number>(5);
+  const [usedWords, setUsedWords] = useState<string[]>([]);
 
   const pickWordAndCategory = useCallback(() => {
     // pick a randon category
@@ -41,16 +50,16 @@ function App() {
     const categoryWords = words[category];
     const unusedWords = categoryWords.filter(word => !usedWords.includes(word));
 
-    if(unusedWords === 0) {
+    if (unusedWords.length === 0) {
       // all words have been used so redefine the used words array
-      setUsedWords([]); 
+      setUsedWords([]);
     }
 
     // chose an unused word user from the category
     const wordIndex = Math.floor(Math.random() * unusedWords.length)
     const word = unusedWords[wordIndex];
 
-     return { word, category };
+    return { word, category };
   }, [words, usedWords]);
 
   // start the secret word game
@@ -74,7 +83,7 @@ function App() {
   }, [pickWordAndCategory]);
 
   // process the letter input
-  const verifyLetter = (letter) => {
+  const verifyLetter = (letter: string) => {
     const normalizedLetter = letter.toLowerCase();
 
     // check if letter has already been ultilized
@@ -124,7 +133,7 @@ function App() {
     // check win condition
     if (guessedLetters.length === uniqueLetters.length) {
       // add score
-      if(gameStage === stages[1].name) {
+      if (gameStage === stages[1].name) {
         setScore((actualScore) => actualScore += 100);
       }
       // restart game with new word
