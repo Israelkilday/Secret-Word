@@ -1,8 +1,8 @@
 # 🎮Secret Word
 
-## 🎨 Layout 💻 && 📱 Mobile  
-
 Este é um projeto de jogo de palavras secretas construído em React com Vite e TypeScript.
+
+## 🎨 Layout 💻 && 📱 Mobile  
 
 ## 🔐Pré-requisitos
 
