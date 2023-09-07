@@ -4,6 +4,8 @@ Este é um projeto de jogo de palavras secretas construído em React com Vite e 
 
 ## 🎨 Layout 💻 && 📱 Mobile  
 
+https://github.com/Israelkilday/Secret-Word/assets/101229204/28ce166b-85bd-4a68-ac9e-132ef7dfb1d3
+
 ## 🔐Pré-requisitos
 
 Antes de começar, certifique-se de que você tenha as seguintes dependências instaladas:
