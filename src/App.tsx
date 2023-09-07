@@ -49,7 +49,7 @@ function App() {
 
     // check that all words have already been used
     const categoryWords = words[category];
-    const unusedWords = categoryWords.filter(word => !usedWords.includes(word));
+    const unusedWords = categoryWords.filter((word: string) => !usedWords.includes(word));
 
     if (unusedWords.length === 0) {
       // all words have been used so redefine the used words array
@@ -73,7 +73,7 @@ function App() {
     // create array of letters
     let wordletters = word.split("");
     wordletters =
-      wordletters.map((firstLetter) => firstLetter.toLowerCase());
+      wordletters.map((firstLetter: string) => firstLetter.toLowerCase());
 
     // fill states
     setPickedCategory(category);
@@ -96,17 +96,17 @@ function App() {
 
     // push guessed letter or remove a guess 
     if (letters.includes(normalizedLetter)) {
-      setGuessedLetters((actualGuessedLetters) => [
+      setGuessedLetters((actualGuessedLetters: string[]) => [
         ...actualGuessedLetters,
         letter
       ]);
     } else {
-      setWrongLetters((actualWrongLetters) => [
+      setWrongLetters((actualWrongLetters: string[]) => [
         ...actualWrongLetters,
         normalizedLetter
       ]);
 
-      setGuesses((actualGuesses) => actualGuesses - 1);
+      setGuesses((actualGuesses: number) => actualGuesses - 1);
     }
   };
 
@@ -124,18 +124,17 @@ function App() {
 
       setGameStage(stages[2].name);
     }
-  }, [guesses])
+  }, [guesses]);
 
   // check win condition
   useEffect(() => {
     const uniqueLetters = [...new Set(letters)];
 
-
     // check win condition
     if (guessedLetters.length === uniqueLetters.length) {
       // add score
       if (gameStage === stages[1].name) {
-        setScore((actualScore) => actualScore += 100);
+        setScore((actualScore: number) => actualScore += 100);
       }
       // restart game with new word
       startGame();

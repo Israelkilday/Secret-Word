@@ -1,6 +1,13 @@
+import React from "react";
+
 import "./GameOver.css"
 
-const GameOver = ({ retry, score }) => {
+interface GameOverProps {
+  retry: () => void;
+  score: number;
+}
+
+const GameOver: React.FC<GameOverProps> = ({ retry, score }) => {
   return (
     <div className="containerGameOver">
       <h1>Fim de jogo!</h1>

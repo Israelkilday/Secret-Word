@@ -1,6 +1,12 @@
+import React from "react";
+
 import "./StartScreen.css"
 
-const StartScreen = ({ startGame }) => {
+interface StartScreenProps {
+    startGame: () => void;
+}
+
+const StartScreen: React.FC<StartScreenProps> = ({ startGame }) => {
     return (
 
         <div className="start">
@@ -10,6 +16,6 @@ const StartScreen = ({ startGame }) => {
         </div>
 
     )
-} 
+}
 
 export default StartScreen;

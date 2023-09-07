@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useState, useRef } from "react";
 
 import "./Game.css"
@@ -24,18 +26,18 @@ const Game = ({
   guesses,
   score,
   usedWords
-}) => {
+}: GameProps) => {
   const [letter, setLetter] = useState("");
-  const letterInputRef = useRef(null);
+  const letterInputRef = useRef<HTMLInputElement | null>(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const normalizedLetter = letter.toLowerCase();
 
     if (!usedWords.includes(pickedWord.toLowerCase())) {
       verifyLetter(normalizedLetter);
       setLetter("");
-      letterInputRef.current.focus();
+      letterInputRef.current?.focus();
     } 
   }
 

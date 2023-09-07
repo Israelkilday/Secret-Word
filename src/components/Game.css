@@ -1,6 +1,6 @@
 .points {
-    margin-top: 1rem;
     font-weight: bold;
+    margin-top: 1rem;
 }
 
 .points span {
@@ -55,10 +55,10 @@ padding: 0.8rem;
 
 .letterContainer input {
     height: 50px;
-    width: 50px;
     font-size: 2em;
-    text-align: center;
     margin-right: 1em;
+    text-align: center;
+    width: 50px;
 }
 
 .wrongLetterContainer span {
@@ -77,9 +77,9 @@ padding: 0.8rem;
     }    
 
     .wordContainer {
-        width: 100%;
         justify-content: center;
         margin: 1rem auto;
+        width: 100%;
     }
 
     .letter, .blankSquare {
@@ -92,14 +92,5 @@ padding: 0.8rem;
         margin-bottom: 1rem;
     }
 }
-
-
-
-
-
-
-
-
-
 
 
