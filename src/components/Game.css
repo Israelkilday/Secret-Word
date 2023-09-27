@@ -38,13 +38,10 @@ padding: 0.8rem;
     font-weight: bold;
     height: 90px;
     line-height: 1.5;
+    margin: auto;
     text-transform: uppercase;
     width: 80px;
 }
-
-.blankSquare {
-    margin: auto;
-} 
 
 .letterContainer p {
     margin-bottom: 1.2em;
