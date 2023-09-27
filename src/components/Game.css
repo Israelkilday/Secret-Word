@@ -42,6 +42,10 @@ padding: 0.8rem;
     width: 80px;
 }
 
+.blankSquare {
+    margin: auto;
+} 
+
 .letterContainer p {
     margin-bottom: 1.2em;
 }
