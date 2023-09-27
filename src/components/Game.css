@@ -27,7 +27,7 @@
 border: 15px solid #ecfa00;
 display: flex;
 margin: 0.8rem;
-padding: 0.8rem;
+padding: 0.8rem auto;
 }
 
 .letter, .blankSquare {
