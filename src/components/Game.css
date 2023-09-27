@@ -24,8 +24,7 @@
 }
 
 .wordContainer {
-/* border: 15px solid #ecfa00; */
-border: 15px solid #000000;
+border: 15px solid #ecfa00;
 display: flex;
 margin: 0.8rem;
 padding: 0.8rem;
